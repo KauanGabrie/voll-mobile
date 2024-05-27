@@ -19,13 +19,15 @@ const secoes = [
                 id: 3,
                 label: 'Crie uma senha',
                 placeholder: 'Insira sua senha',
+                secureTextEntry: true,
                 name: 'senha'
             },
             {
                 id: 4,
                 label: 'Repita a senha',
-                placeholder: 'Confirme sua Senha',
-                name: 'corfirmeSenha'
+                placeholder: 'Insira sua senha',
+                secureTextEntry: true,
+                name: 'confirmaSenha'
             },
             {
                 id: 5,
@@ -35,10 +37,10 @@ const secoes = [
             },
             {
                 id: 6,
-                label: 'Foto de Perfil',
-                placeholder: 'Link da Foto',
+                label: 'Foto do perfil',
+                placeholder: 'Link da foto',
                 name: 'imagem'
-            },
+            }
         ],
         checkbox: []
     },
@@ -55,7 +57,7 @@ const secoes = [
             {
                 id: 2,
                 label: 'Rua',
-                placeholder: 'Nome da Rua',
+                placeholder: 'Nome da rua',
                 name: 'rua'
             },
             {
@@ -81,14 +83,13 @@ const secoes = [
                 label: 'Estado',
                 placeholder: 'Seu Estado',
                 name: 'estado'
-            },
+            }
         ],
         checkbox: []
     },
     {
         id: 3,
         titulo: 'Para finalizar, qual o seu plano de saúde?',
-        entradaTexto: [],
         checkbox: [
             {
                 id: 1,
@@ -126,4 +127,4 @@ const secoes = [
     }
 ]
 
-export { secoes }
+export { secoes };

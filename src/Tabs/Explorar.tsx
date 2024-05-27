@@ -1,92 +1,26 @@
-import { VStack, Text, Box, Avatar } from "native-base";
-import { Botao } from "../componentes/Botao";
+import { Text, ScrollView, Box, VStack } from "native-base";
+import { CardConsulta } from "../componentes/CardConsulta";
 import { EntradaTexto } from "../componentes/EntradaTexto";
-import { Titulo } from "../componentes/Titulo";
-import { ScrollView } from "native-base";
+import { Botao } from "../componentes/Botao";
 
-export default function Explorar({ navigation }) {
+export default function Explorar() {
     return (
-        <ScrollView>
-
-            <VStack >
-
-                <VStack w="90%" bg='white' p="5" borderRadius="lg" shadow="2" marginLeft="5%">
-                    <Box w={"100%"}>
-                        <EntradaTexto placeholder='Digite a Especialidade' ></EntradaTexto>
-                        <EntradaTexto placeholder='Digite sua Localização' secureTextEntry={true}></EntradaTexto>
-                    </Box>
-                    <Botao onPress={() => navigation.navigate('Tabs')}>
+        <ScrollView flex={1} bgColor="white">
+            <VStack flex={1} alignItems="flex-start" justifyContent="flex-start" p={5}>
+                <Box w="100%" borderRadius="lg" p={3} mt={5} shadow="1" borderRightRadius="md">
+                    <EntradaTexto placeholder="Digite a especialidade" />
+                    <EntradaTexto placeholder="Digite sua localização" />
+                    <Botao mt={3} mb={3}>
                         Buscar
                     </Botao>
-                </VStack>
-
-                <Box alignItems="center" marginBottom="5%">
-                    <Titulo color="blue.500" >Resultado da Busca</Titulo>
                 </Box>
-
-                <VStack w="90%" bg='white' p="5" borderRadius="lg" shadow="2" marginLeft="5%" marginBottom="5%">
-                    <VStack flexDir="row"><Avatar size='xl' source={{
-                        uri: "https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/5cb34d9fe41d4f7e8041fb06d6927ffa.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1747857670&x-signature=kiEvZ85y7CIPo1cLfj7a8rpLyW4%3D"
-                    }} mt={5} />
-                        <VStack pl="4">
-                            <Text>Dra. Ana Lucia</Text>
-                            <Text>Angiologista</Text>
-                        </VStack>
+                <Text color="blue.500" fontSize={25} textAlign="center" alignSelf="center" mb={5} mt={3}>Resultado da Busca</Text>
+                {[1, 2, 3, 4].map((_, index) => (
+                    <VStack flex={1} w="100%" alignItems="flex-start" bgColor="white" key={index} mb={10}>
+                        <CardConsulta especialidade="Angiologista" nome="Dra. Ana Lúcia" foto="https://github.com/arthurlmr2004.png" />
                     </VStack>
-                    <Botao mt={4}>
-                        Agendar Consulta
-                    </Botao>
-                </VStack>
-
-                <VStack marginBottom="5%">
-                    <VStack w="90%" bg='white' p="5" borderRadius="lg" shadow="2" marginLeft="5%" >
-                        <VStack flexDir="row"><Avatar size='xl' source={{
-                            uri: "https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/5cb34d9fe41d4f7e8041fb06d6927ffa.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1747857670&x-signature=kiEvZ85y7CIPo1cLfj7a8rpLyW4%3D"
-                        }} mt={5} />
-                            <VStack pl="4">
-                                <Text>Dra. Ana Lucia</Text>
-                                <Text>Angiologista</Text>
-                            </VStack>
-                        </VStack>
-                        <Botao mt={4}>
-                            Agendar Consulta
-                        </Botao>
-                    </VStack>
-                </VStack>
-
-                <VStack marginBottom="5%">
-                    <VStack w="90%" bg='white' p="5" borderRadius="lg" shadow="2" marginLeft="5%" >
-                        <VStack flexDir="row"><Avatar size='xl' source={{
-                            uri: "https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/5cb34d9fe41d4f7e8041fb06d6927ffa.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1747857670&x-signature=kiEvZ85y7CIPo1cLfj7a8rpLyW4%3D"
-                        }} mt={5} />
-                            <VStack pl="4">
-                                <Text>Dra. Ana Lucia</Text>
-                                <Text>Angiologista</Text>
-                            </VStack>
-                        </VStack>
-                        <Botao mt={4}>
-                            Agendar Consulta
-                        </Botao>
-                    </VStack>
-                </VStack>
-                
-                <VStack marginBottom="5%">
-                    <VStack w="90%" bg='white' p="5" borderRadius="lg" shadow="2" marginLeft="5%" >
-                        <VStack flexDir="row"><Avatar size='xl' source={{
-                            uri: "https://p16-flow-sign-va.ciciai.com/ocean-cloud-tos-us/5cb34d9fe41d4f7e8041fb06d6927ffa.png~tplv-6bxrjdptv7-image.png?rk3s=18ea6f23&x-expires=1747857670&x-signature=kiEvZ85y7CIPo1cLfj7a8rpLyW4%3D"
-                        }} mt={5} />
-                            <VStack pl="4">
-                                <Text>Dra. Ana Lucia</Text>
-                                <Text>Angiologista</Text>
-                            </VStack>
-                        </VStack>
-                        <Botao mt={4}>
-                            Agendar Consulta
-                        </Botao>
-                    </VStack>
-                </VStack>
-
+                ))}
             </VStack>
         </ScrollView>
-    )
+    );
 }
