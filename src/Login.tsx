@@ -36,7 +36,7 @@ export default function Login({ navigation } : any) {
 
       const tokenDecodificado = jwtDecode(token) as any
       const pacienteId = tokenDecodificado.id
-      AsyncStorage.setItem('pacientId', pacienteId)
+      AsyncStorage.setItem('pacintId', pacienteId)
       navigation.replace('Tabs')
     }
     else{
