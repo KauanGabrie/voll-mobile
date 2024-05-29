@@ -16,22 +16,22 @@ export default function Cadastro({ navigation }: any) {
   function avancarSecao() {
     if (todosCamposPreenchidos()) {
       if (numSecao < secoes.length - 1) {
-        setNumSecao(numSecao + 1);
-      } else {
-        console.log(dados);
-        console.log(planos);
-        cadastrar();
+        setNumSecao(numSecao + 1)
       }
-    } else {
+      else {
+        console.log(dados)
+        console.log(planos)
+        cadastrar()
+      }
+    }
+    else {
       toast.show({
-        title: 'Erro',
-        description: 'Por favor, preencha todos os campos.',
+        title: 'Erro ao cadastrar',
+        description: 'Verifique os dados e tente novamente',
         backgroundColor: 'red.500',
       });
     }
-    
   }
-
   function voltarSecao() {
     if (numSecao > 0) {
       setNumSecao(numSecao - 1)
@@ -71,21 +71,20 @@ export default function Cadastro({ navigation }: any) {
       imagem: dados.imagem
     })
 
-    if (resultado !== '' && planos.length != 0) {
+    if (resultado !== '' && planos.length > 0) {
       toast.show({
         title: 'Cadastro realizado com sucesso',
         description: 'Você já pode fazer login',
         backgroundColor: 'green.500',
       })
       navigation.replace('Login');
-    }
-    else {
-      console.log('erro ao fazer cadastro')
+    } else {
       toast.show({
         title: 'Erro ao cadastrar',
         description: 'Verifique os dados e tente novamente',
         backgroundColor: 'red.500',
       })
+      console.log('Erro ao cadastrar');
     }
   }
 
