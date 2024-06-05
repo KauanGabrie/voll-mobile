@@ -5,6 +5,8 @@ import { EntradaTexto } from "../componentes/EntradaTexto";
 import { Titulo } from "../componentes/Titulo";
 import { buscarEspecialistaPorEstado } from "../servicos/EspecialistaServico";
 import { useState } from "react";
+import { agendarConsulta } from "../servicos/ConsultaServico";
+import Principal from "./Principal";
 
 interface Especialista {
   nome: string,
@@ -13,10 +15,11 @@ interface Especialista {
   id: string,
 }
 
-export default function Explorar() {
+export default function Explorar({ navigation }) {
   const [estado, setEstado] = useState('');
   const [especialidade, setEspecialidade] = useState('');
   const [resultadoBusca, setResultadoBuscar] = useState([]);
+  const [numSecao, setNumSecao] = useState(0);
 
   async function buscar() {
     if (!estado || !especialidade) return null
@@ -25,6 +28,9 @@ export default function Explorar() {
       setResultadoBuscar(resultado)
       console.log(resultado)
     }
+  }
+  function voltarSecao() {
+    navigation.replace('Login')
   }
 
   return (
@@ -53,9 +59,11 @@ export default function Explorar() {
               especialidade={especialista.especialidade}
               foto={especialista.imagem}
               nome={especialista.nome}
+              onPress={() => navigation.navigate('Agendamento', { especialistaId: especialista.id })}
             />
           </VStack>
         ))}
+        <Botao onPress={voltarSecao} bgColor="blue.800">Voltar</Botao>
       </VStack>
     </ScrollView>
   )
